@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "linux-proc-anomaly"
+version = "0.1.0"
+description = "Lightweight native /proc metrics collector for anomaly detection on constrained/embedded Linux, with self-measured overhead."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Amadou Tidiane Anne" }]
+keywords = ["embedded", "linux", "proc", "anomaly-detection", "ics", "iot", "monitoring"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Topic :: System :: Monitoring",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/AmadouAnne/linux-proc-anomaly"
+Paper = "https://hal.science/hal-05486729v1"
+
+[project.scripts]
+proc-anomaly-collect = "linux_proc_anomaly.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/linux_proc_anomaly"]
